@@ -1,0 +1,822 @@
+  <!-- =======================
+    1. BOILERPLATE HTML
+    2. METAS PRINCIPALES (charset, viewport)
+    3. SEO
+    4. OPEN GRAPH
+    5. COMPATIBILIDAD
+    6. TÍTULO
+    7. CSS EXTERNO
+  ======================= -->
+
+
+<!DOCTYPE html>
+<html lang="es"> <!-- idioma -->
+<head>
+
+  <!-- 2. METAS PRINCIPALES -->
+  <meta charset="UTF-8" /> <!-- codificación -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- responsive -->
+
+  <!-- 3. SEO -->
+  <meta
+    name="description"
+    content="Guía completa de Inteligencia Artificial: Machine Learning, Deep Learning, LLMs, RAG, datos, evaluación, seguridad y despliegue."
+  /> <!-- descripción -->
+  <meta name="robots" content="index, follow" /> <!-- indexación -->
+  <meta name="theme-color" content="#0f0f10" /> <!-- color navegador -->
+
+  <!-- 4. OPEN GRAPH -->
+  <meta property="og:title" content="AILab — Inteligencia Artificial" /> <!-- OG título -->
+  <meta
+    property="og:description"
+    content="Aprende IA con diseño moderno, Flexbox y estructura semántica."
+  /> <!-- OG descripción -->
+  <meta
+    property="og:image"
+    content="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80"
+  /> <!-- OG imagen -->
+  <meta property="og:type" content="website" /> <!-- OG tipo -->
+  <meta property="og:url" content="#" /> <!-- OG url -->
+
+  <!-- 5. COMPATIBILIDAD -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- compatibilidad -->
+
+  <!-- 6. TÍTULO -->
+  <title>Inteligencia Artificial</title> <!-- título -->
+
+  <!-- 7. CSS EXTERNO -->
+  <link rel="stylesheet" href="css/styles.css" /> <!-- estilos -->
+</head>
+
+<body>
+  <!-- =======================
+    1. HEADER
+    2. NAV / MENÚ
+    3. MAIN
+      3.1 HERO
+      3.2 FUNDAMENTOS
+      3.3 MODELOS
+      3.4 PIPELINE IA
+      3.5 APLICACIONES
+      3.6 GUÍA
+      3.7 CONTACTO
+    4. FOOTER
+    5. MODAL
+    6. JS EXTERNO
+  ======================= -->
+
+  <!-- 1. HEADER -->
+  <header class="topbar site-header"> <!-- cabecera -->
+    <div class="wrap topbar__inner"> <!-- contenedor -->
+      <h1 class="brand">AI<span>Lab</span></h1> <!-- marca -->
+
+      <!-- 2. NAV / MENÚ -->
+      <nav id="menu"> <!-- navegación -->
+        <div class="wrap">
+          <input type="checkbox" id="responsive-menu" onclick="updatemenu()" /> <!-- control CSS -->
+          <label for="responsive-menu"></label> <!-- botón -->
+
+          <ul> <!-- lista -->
+            <li><a href="#inicio">Inicio</a></li> <!-- enlace -->
+
+            <li>
+              <a class="dropdown-arrow" href="#fundamentos">Fundamentos</a> <!-- desplegable -->
+              <ul class="sub-menus"> <!-- submenú -->
+                <li><a href="#fundamentos">Visión general</a></li>
+                <li><a href="#fundamentos">Machine Learning</a></li>
+                <li><a href="#fundamentos">Deep Learning</a></li>
+                <li><a href="#fundamentos">IA Generativa</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a class="dropdown-arrow" href="#modelos">Modelos</a> <!-- desplegable -->
+              <ul class="sub-menus"> <!-- submenú -->
+                <li><a href="#modelos">LLMs</a></li>
+                <li><a href="#modelos">RAG</a></li>
+                <li><a href="#modelos">Fine-tuning</a></li>
+                <li><a href="#modelos">Evaluación</a></li>
+              </ul>
+            </li>
+
+            <li><a href="#pipeline">Pipeline IA</a></li> <!-- enlace -->
+            <li><a href="#aplicaciones">Aplicaciones</a></li> <!-- enlace -->
+            <li><a href="#guia">Guía diseño</a></li> <!-- enlace -->
+            <li><a href="#contacto">Contacto</a></li> <!-- enlace -->
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 3. MAIN -->
+  <main id="contenido" class="site-main"> <!-- contenido -->
+
+    <!-- 3.1 HERO -->
+    <section id="inicio" class="hero hero--primary"> <!-- hero -->
+      <div class="wrap hero__content"> <!-- flexbox -->
+        <div class="hero__text"> <!-- texto -->
+          <h2>Inteligencia Artificial: modelos, datos y despliegue</h2> <!-- título -->
+
+          <div class="hero-kpis"> <!-- kpis -->
+            <div class="kpi"><b>01</b> Fundamentos (ML/DL)</div> <!-- kpi -->
+            <div class="kpi"><b>02</b> IA Generativa (LLMs)</div> <!-- kpi -->
+            <div class="kpi"><b>03</b> RAG + Datos</div> <!-- kpi -->
+            <div class="kpi"><b>04</b> Evaluación + Deploy</div> <!-- kpi -->
+          </div>
+
+          <hr class="hr" /> <!-- línea -->
+
+          <div class="mini-grid"> <!-- mini grid -->
+            <div class="mini"> <!-- mini -->
+              <h4>Enfoque</h4>
+              <p>Conceptos esenciales y estructura clara para proyectos de IA.</p>
+            </div>
+            <div class="mini">
+              <h4>Contenido</h4>
+              <p>Listas, tablas y secciones con comparativas y checklist.</p>
+            </div>
+            <div class="mini">
+              <h4>Producción</h4>
+              <p>Evaluación, seguridad, monitorización y control de costes.</p>
+            </div>
+          </div>
+        </div>
+
+        <figure class="hero-media"> <!-- imagen -->
+          <img
+            src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=80"
+            alt="Imagen de tecnología e inteligencia artificial"
+          /> <!-- img -->
+        </figure>
+      </div>
+    </section>
+
+    <!-- 3.2 FUNDAMENTOS -->
+    <section id="fundamentos" class="section"> <!-- sección -->
+      <div class="wrap">
+        <h2>Fundamentos de IA</h2> <!-- encabezado -->
+
+        <div class="controls"> <!-- controles -->
+          <div class="search"> <!-- buscador -->
+            <span>Buscar</span> <!-- icono -->
+            <input id="searchCards" type="text" placeholder="Filtrar tarjetas (ML, LLM, RAG, Datos...)" /> <!-- input -->
+          </div>
+          <button id="btnScrollTop" class="btn secondary" type="button">Subir arriba</button> <!-- botón -->
+          <button id="btnRandomTip" class="btn" type="button">Tip aleatorio</button> <!-- botón -->
+        </div>
+
+        <div id="tipBox" class="callout" style="display:none;"> <!-- tip -->
+          <b>Tip:</b> <span id="tipText">...</span> <!-- texto -->
+        </div>
+
+        <div class="cards" id="cardsFundamentos" role="list"> <!-- flexbox -->
+          <article class="card" role="listitem" data-title="machine learning ml datos supervisado no supervisado"> <!-- artículo -->
+            <img
+              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"
+              alt="Machine Learning y ciberseguridad"
+            /> <!-- imagen -->
+            <div class="card__body"> <!-- cuerpo -->
+              <h3>Machine Learning</h3>
+              <p>Aprendizaje a partir de datos: supervisado, no supervisado y por refuerzo.</p>
+              <div class="card__meta">
+                <span class="tag">Datos</span>
+                <span class="tag alt">Predicción</span>
+                <span class="tag">Generalización</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" data-title="deep learning dl redes neuronales backprop embeddings"> <!-- artículo -->
+            <img
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80"
+              alt="Deep Learning y trabajo con tecnología"
+            />
+            <div class="card__body">
+              <h3>Deep Learning</h3>
+              <p>Redes neuronales profundas para visión, audio, texto y series temporales.</p>
+              <div class="card__meta">
+                <span class="tag">Redes</span>
+                <span class="tag alt">Embeddings</span>
+                <span class="tag">Backprop</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" data-title="ia generativa generative diffusion multimodal texto imagen"> <!-- artículo -->
+            <img
+              src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=80"
+              alt="IA generativa y código"
+            />
+            <div class="card__body">
+              <h3>IA Generativa</h3>
+              <p>Modelos que crean contenido: texto, imagen, audio, vídeo y código.</p>
+              <div class="card__meta">
+                <span class="tag">LLMs</span>
+                <span class="tag alt">Difusión</span>
+                <span class="tag">Multimodal</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <hr class="hr" />
+
+        <div class="grid-2"> <!-- grid -->
+          <article class="panel"> <!-- panel -->
+            <h3>Calidad del modelo</h3>
+            <p>
+              Un modelo se valida por cómo responde con datos nuevos. Si solo memoriza, en producción
+              falla con ruido, cambios y casos raros.
+            </p>
+            <div class="callout">
+              <b>Clave:</b> validación y test con datos realistas, no solo ejemplos perfectos.
+            </div>
+          </article>
+
+          <article class="panel"> <!-- panel -->
+            <h3>Conceptos esenciales</h3>
+            <p>
+              Overfitting, regularización, sesgo/varianza, métricas y separación correcta del dataset.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Overfitting</span>
+              <span class="pill">Regularización</span>
+              <span class="pill">Métricas</span>
+              <span class="pill">Split</span>
+              <span class="pill">Validación</span>
+              <span class="pill">Drift</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.3 MODELOS -->
+    <section id="modelos" class="section section--alt"> <!-- sección -->
+      <div class="wrap">
+        <h2>Modelos y técnicas actuales</h2> <!-- encabezado -->
+        <p>
+          Se combinan modelos base con datos propios y contexto externo (RAG). Se mide rendimiento,
+          robustez, seguridad y coste para decidir arquitectura y despliegue.
+        </p>
+
+        <div class="cards" id="cardsModelos" role="list"> <!-- flexbox -->
+          <article class="card" role="listitem" data-title="llm modelos de lenguaje transformers tokens prompting"> <!-- artículo -->
+            <img
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80"
+              alt="LLMs y tecnología"
+            /> <!-- imagen -->
+            <div class="card__body"> <!-- cuerpo -->
+              <h3>LLMs (Modelos de Lenguaje)</h3>
+              <p>Transformers que generan y entienden texto por probabilidad token a token.</p>
+              <div class="card__meta">
+                <span class="tag">Transformers</span>
+                <span class="tag alt">Tokens</span>
+                <span class="tag">Prompting</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" data-title="rag retrieval augmented generation embeddings vector db contexto"> <!-- artículo -->
+            <img
+              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=80"
+              alt="RAG y desarrollo"
+            />
+            <div class="card__body">
+              <h3>RAG</h3>
+              <p>Recupera información (vector DB) y la usa como contexto antes de responder.</p>
+              <div class="card__meta">
+                <span class="tag">Embeddings</span>
+                <span class="tag alt">Vector DB</span>
+                <span class="tag">Contexto</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" data-title="fine tuning ajuste datos propios calidad coste"> <!-- artículo -->
+            <img
+              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=80"
+              alt="Fine-tuning y código"
+            />
+            <div class="card__body">
+              <h3>Fine-tuning</h3>
+              <p>Ajusta un modelo con datos específicos para estilo, formato o tareas concretas.</p>
+              <div class="card__meta">
+                <span class="tag">Datos propios</span>
+                <span class="tag warn">Coste</span>
+                <span class="tag alt">Calidad</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" data-title="evaluacion metricas test regresion robustez"> <!-- artículo -->
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
+              alt="Evaluación y analítica"
+            />
+            <div class="card__body">
+              <h3>Evaluación</h3>
+              <p>Pruebas automáticas + revisión humana: precisión, seguridad y robustez.</p>
+              <div class="card__meta">
+                <span class="tag ok">Métricas</span>
+                <span class="tag alt">Test sets</span>
+                <span class="tag">Regresión</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" data-title="agentes tools planificacion automatizacion"> <!-- artículo -->
+            <img
+              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80"
+              alt="Agentes y automatización"
+            />
+            <div class="card__body">
+              <h3>Agentes</h3>
+              <p>Modelos que planifican tareas, llaman herramientas y encadenan pasos.</p>
+              <div class="card__meta">
+                <span class="tag">Tools</span>
+                <span class="tag alt">Plan</span>
+                <span class="tag">Automatizar</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" data-title="multimodal vision audio fusion imagen texto"> <!-- artículo -->
+            <img
+              src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1400&q=80"
+              alt="Multimodal y hardware"
+            />
+            <div class="card__body">
+              <h3>Multimodal</h3>
+              <p>Texto + imagen + audio: comprensión y generación combinada en un sistema.</p>
+              <div class="card__meta">
+                <span class="tag">Vision</span>
+                <span class="tag alt">Audio</span>
+                <span class="tag">Fusión</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <hr class="hr" />
+
+        <div class="grid-2">
+          <article class="panel">
+            <h3>Prompting</h3>
+            <p>
+              Un prompt reduce ambigüedad con rol, objetivo, formato, límites y ejemplos.
+              Se mejora consistencia sin entrenar.
+            </p>
+            <div class="callout">
+              <b>Regla:</b> pedir formato y criterios (lista, tabla, JSON, pasos).
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>Datos</h3>
+            <p>
+              Limpieza y etiquetado aportan más que cambiar de arquitectura si el dataset está mal.
+              Calidad y trazabilidad son la base.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Limpieza</span>
+              <span class="pill">Etiquetado</span>
+              <span class="pill">Balance</span>
+              <span class="pill">Privacidad</span>
+              <span class="pill">Trazabilidad</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.4 PIPELINE IA -->
+    <section id="pipeline" class="section section--ai-detail"> <!-- sección -->
+      <div class="wrap">
+        <h2>Pipeline de IA en detalle</h2>
+        <p>
+          Estructura por fases: datos, representación, entrenamiento, evaluación, seguridad y despliegue.
+        </p>
+
+        <div class="ai-layout">
+          <article class="ai-main flow">
+
+            <section>
+              <h3>1) Datos</h3>
+              <ul>
+                <li>Definir objetivo: qué se quiere predecir/generar y con qué límites.</li>
+                <li>Fuentes: bases internas, logs, APIs, documentos, imágenes o audio.</li>
+                <li>Limpieza: duplicados, ruido, valores faltantes y estandarización.</li>
+                <li>Etiquetado: reglas claras para consistencia.</li>
+                <li>Split: train/valid/test para medir generalización.</li>
+              </ul>
+              <div class="callout">
+                <b>Tip:</b> dataset limpio reduce errores en producción.
+              </div>
+            </section>
+
+            <section>
+              <h3>2) Representación (features y embeddings)</h3>
+              <ul>
+                <li>Tabular: normalización, encoding y escalado.</li>
+                <li>Texto: embeddings para búsqueda semántica y clustering.</li>
+                <li>Imagen: vectores de características para clasificación o detección.</li>
+                <li>Vector DB: indexación kNN + filtros por metadata.</li>
+                <li>Chunking: trocear documentos sin perder sentido.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>3) Entrenamiento</h3>
+              <div class="table-scroll">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Tipo</th>
+                      <th>Ejemplos</th>
+                      <th>Cuándo usar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Supervisado</td>
+                      <td>Regresión, clasificación</td>
+                      <td>Hay etiquetas claras (spam/no spam, precio, riesgo)</td>
+                    </tr>
+                    <tr>
+                      <td>No supervisado</td>
+                      <td>Clustering, reducción</td>
+                      <td>No hay etiquetas; se busca estructura</td>
+                    </tr>
+                    <tr>
+                      <td>Refuerzo</td>
+                      <td>Políticas, control</td>
+                      <td>Decisiones secuenciales (optimización, control)</td>
+                    </tr>
+                    <tr>
+                      <td>LLM + Prompting</td>
+                      <td>Instrucciones y formatos</td>
+                      <td>Se necesita rapidez sin entrenar</td>
+                    </tr>
+                    <tr>
+                      <td>Fine-tuning</td>
+                      <td>Ajuste con datos</td>
+                      <td>Estilo/tarea fija y dataset de calidad</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="note">
+                Control de overfitting, regularización y reproducibilidad.
+              </p>
+            </section>
+
+            <section>
+              <h3>4) Evaluación</h3>
+              <ul>
+                <li>Métricas: accuracy, precision/recall, F1, ROC-AUC según el caso.</li>
+                <li>LLMs: exactitud factual, formato, seguridad y consistencia.</li>
+                <li>Pruebas de regresión: no romper casos que ya iban bien.</li>
+                <li>Conjuntos “duros”: ejemplos reales con ruido y ambigüedad.</li>
+                <li>Revisión humana: muestreo y criterios claros.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>5) Seguridad y riesgos</h3>
+              <ul>
+                <li>Privacidad: minimizar datos sensibles y aplicar controles.</li>
+                <li>Sesgo: revisar representatividad y reglas de decisión.</li>
+                <li>Prompt injection: separar instrucciones y limpiar contexto.</li>
+                <li>Alucinaciones: RAG, verificación y límites de respuesta.</li>
+                <li>Registro: trazabilidad de entradas/salidas para auditoría.</li>
+              </ul>
+              <div class="callout">
+                <b>Idea:</b> medir calidad, coste y riesgo de forma continua.
+              </div>
+            </section>
+
+            <section>
+              <h3>6) Despliegue (Deploy)</h3>
+              <ul>
+                <li>API: endpoints, rate limit, caché y observabilidad.</li>
+                <li>Coste: tokens, latencia, batch vs realtime.</li>
+                <li>Monitorización: drift, métricas y alertas.</li>
+                <li>Versionado: modelo, prompts, dataset y parámetros.</li>
+                <li>Rollback: volver a una versión estable rápido.</li>
+              </ul>
+            </section>
+
+          </article>
+
+          <aside class="ai-aside">
+            <section class="stack-md">
+              <h4>Checklist rápido</h4>
+              <ul>
+                <li>Objetivo definido (tarea + límites).</li>
+                <li>Dataset limpio + split correcto.</li>
+                <li>Métricas adecuadas.</li>
+                <li>RAG si falta contexto.</li>
+                <li>Monitorización + logs.</li>
+              </ul>
+            </section>
+
+            <hr class="hr" />
+
+            <section class="stack-md">
+              <h4>Glosario rápido</h4>
+              <dl class="glossary">
+                <dt>Embedding</dt><dd>Vector que representa significado (texto/imagen).</dd>
+                <dt>RAG</dt><dd>Recuperación + generación con contexto externo.</dd>
+                <dt>Fine-tuning</dt><dd>Ajuste del modelo con datos específicos.</dd>
+                <dt>Drift</dt><dd>Cambio en datos reales respecto al entrenamiento.</dd>
+                <dt>Prompt</dt><dd>Instrucción para guiar salida del modelo.</dd>
+              </dl>
+            </section>
+
+            <hr class="hr" />
+
+            <section class="stack-md">
+              <h4>Consejos prácticos</h4>
+              <ul>
+                <li>Empezar con baseline simple y medir.</li>
+                <li>Evaluar con casos reales y regresión.</li>
+                <li>Reducir coste con caché y prompts cortos.</li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.5 APLICACIONES -->
+    <section id="aplicaciones" class="section">
+      <div class="wrap">
+        <h2>Aplicaciones reales de IA</h2>
+        <p>Casos de uso habituales en empresas, desarrollo, multimedia y automatización.</p>
+
+        <div class="grid-2">
+          <article class="panel">
+            <h3>IA en empresas</h3>
+            <p>Atención al cliente, clasificación de tickets, resumen de documentos y búsqueda semántica.</p>
+            <ul>
+              <li>Soporte: respuestas sugeridas y priorización.</li>
+              <li>Ventas: scoring y segmentación.</li>
+              <li>Legal: extracción de cláusulas y resúmenes.</li>
+              <li>Producto: análisis de feedback y tendencias.</li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <h3>IA para desarrolladores</h3>
+            <p>Generación de código, refactor, tests y documentación con control de formato y criterios.</p>
+            <ul>
+              <li>Snippets y utilidades rápidas.</li>
+              <li>Revisión y detección de bugs.</li>
+              <li>Tests unitarios con casos límite.</li>
+              <li>Documentación y ejemplos consistentes.</li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <h3>IA en multimedia</h3>
+            <p>Edición y generación: imagen, audio y vídeo con coherencia y control de artefactos.</p>
+            <ul>
+              <li>Imagen: difusión, inpainting y upscaling.</li>
+              <li>Audio: TTS, limpieza y separación de voz.</li>
+              <li>Vídeo: resumen, subtítulos y doblaje.</li>
+              <li>Contenido: guiones, ideas y variantes.</li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <h3>IA y educación</h3>
+            <p>Creación de ejercicios, corrección y feedback con rúbricas y criterios de evaluación.</p>
+            <ul>
+              <li>Explicaciones paso a paso.</li>
+              <li>Casos prácticos y rúbricas.</li>
+              <li>Plan de estudio por objetivos.</li>
+              <li>Corrección guiada con criterios.</li>
+            </ul>
+          </article>
+        </div>
+
+        <hr class="hr" />
+
+        <div class="cards" role="list">
+          <article class="card" role="listitem" data-title="tecnologia servidor nube cloud">
+            <img
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80"
+              alt="Cloud y tecnología"
+            />
+            <div class="card__body">
+              <h3>Cloud + IA</h3>
+              <p>Infraestructura, escalado, costes y observabilidad para modelos en producción.</p>
+              <div class="card__meta">
+                <span class="tag">Cloud</span>
+                <span class="tag alt">Deploy</span>
+                <span class="tag warn">Coste</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" data-title="datos big data analytics dashboard">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
+              alt="Datos y analítica"
+            />
+            <div class="card__body">
+              <h3>Datos</h3>
+              <p>ETL, calidad, gobierno del dato y datasets trazables para entrenar sin sorpresas.</p>
+              <div class="card__meta">
+                <span class="tag">ETL</span>
+                <span class="tag alt">Calidad</span>
+                <span class="tag">Trazabilidad</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" data-title="automatizacion robots industria ai iot">
+            <img
+              src="https://images.unsplash.com/photo-1581092919535-7146c98d36d5?auto=format&fit=crop&w=1400&q=80"
+              alt="Automatización industrial y robótica"
+            />
+            <div class="card__body">
+              <h3>Automatización</h3>
+              <p>Agentes, IoT y pipelines: ejecutar, verificar y entregar resultados con control.</p>
+              <div class="card__meta">
+                <span class="tag">Agentes</span>
+                <span class="tag alt">IoT</span>
+                <span class="tag ok">Workflows</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3.6 GUÍA -->
+    <section id="guia" class="section section--alt">
+      <div class="wrap">
+        <h2>Guía de diseño — 6 puntos</h2>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Buenas prácticas visuales</h3>
+            <ol class="flow">
+              <li><strong>Coherencia visual:</strong> paleta 3–5 colores y estilo uniforme.</li>
+              <li><strong>Jerarquía clara:</strong> títulos fuertes, texto secundario suave.</li>
+              <li><strong>Espacios:</strong> márgenes y paddings para respirar.</li>
+              <li><strong>Navegación:</strong> menús claros también en móviles.</li>
+              <li><strong>Optimización:</strong> imágenes comprimidas y carga rápida.</li>
+              <li><strong>Elementos destacados:</strong> botones visibles y hover suave.</li>
+            </ol>
+          </div>
+
+          <div class="panel">
+            <h3>Guía de contenido IA</h3>
+            <div class="table-scroll">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Bloque</th>
+                    <th>Qué aporta</th>
+                    <th>Ejemplo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Definición</td>
+                    <td>Contexto rápido</td>
+                    <td>Qué es RAG</td>
+                  </tr>
+                  <tr>
+                    <td>Lista</td>
+                    <td>Puntos clave</td>
+                    <td>Pasos del pipeline</td>
+                  </tr>
+                  <tr>
+                    <td>Tabla</td>
+                    <td>Comparación</td>
+                    <td>ML vs DL vs LLM</td>
+                  </tr>
+                  <tr>
+                    <td>Checklist</td>
+                    <td>Acción</td>
+                    <td>Antes de deploy</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.7 CONTACTO -->
+    <section class="section" id="contacto">
+      <div class="wrap">
+        <h2>Contacto</h2>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Formulario</h3>
+            <form method="post">
+              <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <div style="flex:1 1 260px;">
+                  <label for="nombre" style="display:block; font-weight:800; color:rgba(232,232,234,.92); margin:0 0 6px;">Nombre</label>
+                  <input id="nombre" name="nombre" type="text" placeholder="Nombre"
+                    style="width:100%; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.10); border-radius:12px; color:rgba(232,232,234,.95); padding:10px 12px;" />
+                </div>
+
+                <div style="flex:1 1 260px;">
+                  <label for="asunto" style="display:block; font-weight:800; color:rgba(232,232,234,.92); margin:0 0 6px;">Asunto</label>
+                  <input id="asunto" name="asunto" type="text" placeholder="Asunto"
+                    style="width:100%; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.10); border-radius:12px; color:rgba(232,232,234,.95); padding:10px 12px;" />
+                </div>
+              </div>
+
+              <div style="margin-top:12px;">
+                <label for="email" style="display:block; font-weight:800; color:rgba(232,232,234,.92); margin:0 0 6px;">Email</label>
+                <input id="email" name="email" type="email" placeholder="email@correo.com"
+                  style="width:100%; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.10); border-radius:12px; color:rgba(232,232,234,.95); padding:10px 12px;" />
+              </div>
+
+              <div style="margin-top:12px;">
+                <label for="mensaje" style="display:block; font-weight:800; color:rgba(232,232,234,.92); margin:0 0 6px;">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Mensaje..."
+                  style="width:100%; min-height:130px; resize:vertical; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.10); border-radius:12px; color:rgba(232,232,234,.95); padding:10px 12px;"></textarea>
+              </div>
+
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
+                <button class="btn" type="submit" name="enviar">Enviar</button>
+                <button class="btn secondary" type="reset">Limpiar</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="panel">
+            <h3>Checklist de proyecto IA</h3>
+            <ul>
+              <li>Objetivo + métrica (qué es “éxito”).</li>
+              <li>Datos: fuente, limpieza, split.</li>
+              <li>Modelo: baseline, prompt o fine-tuning.</li>
+              <li>Evaluación: casos reales, regresión.</li>
+              <li>Deploy: monitorización y control de costes.</li>
+            </ul>
+            <div class="callout">
+              <b>Nota:</b> imágenes online y temática tecnología/IA.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 4. FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap footer__inner">
+      <p>&copy; 2025 AILab — Flexbox + Semántica + Diseño (Tema IA)</p>
+
+      <div class="social">
+        <a href="#" title="X">X</a>
+        <a href="#" title="IG">IG</a>
+        <a href="#" title="GH">GH</a>
+        <a href="#" title="IN">IN</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 5. MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal__dialog">
+      <div class="modal__top">
+        <div class="modal__title" id="modalTitle">Detalle</div>
+        <button class="modal__close" id="modalClose" type="button">×</button>
+      </div>
+      <div class="modal__body">
+        <div class="modal__grid">
+          <img id="modalImg" class="modal__img" src="" alt="Imagen de detalle IA" />
+          <div>
+            <p id="modalDesc">...</p>
+            <ul id="modalList">
+              <li>...</li>
+            </ul>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+              <button class="btn" id="modalGo" type="button">Ir a sección</button>
+              <button class="btn secondary" id="modalCopy" type="button">Copiar resumen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. JS EXTERNO -->
+  <script src="js/app.js"></script> <!-- JS -->
+</body>
+</html>
