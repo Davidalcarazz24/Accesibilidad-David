@@ -1,4 +1,4 @@
-# README / WCAG 2.2 (Promt-David)
+<img width="1903" height="975" alt="image" src="https://github.com/user-attachments/assets/1c60a64b-4faf-491f-8342-0626bff908b6" /># README / WCAG 2.2 (Promt-David)
 
 ## ES Español
 
@@ -37,7 +37,8 @@
 ### Explicación del proceso de trabajo y resultados obtenidos
 Se usó `indexsinaccesibilidad` como referencia sin modificarlo y se creó un proyecto nuevo en `Promt-David` con `index.html`, `styles.css` y `app.js`. Luego se corrigió la estructura semántica, se revisó la jerarquía de encabezados, se mejoraron formularios e imágenes y se comprobó teclado, foco y legibilidad. El resultado es una versión más coherente en accesibilidad y con mejores resultados en las herramientas de validación.
 
----
+---<img width="1903" height="975" alt="image" src="https://github.com/user-attachments/assets/1712dd77-a4a7-4313-a937-dd6b4310e33a" />
+
 
 ## PROMPT COMPLETO (Copilot/IDE)
 
