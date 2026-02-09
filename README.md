@@ -32,7 +32,7 @@
 - Contraste mejorable: se ajustó CSS con cambios mínimos.
 
 ### Enlace a capturas de validación
-- WAVE + axe DevTools + Lighthouse (capturas): **[PEGAR AQUÍ EL ENLACE]**
+- WAVE + axe DevTools + Lighthouse 
 
 ### Explicación del proceso de trabajo y resultados obtenidos
 Se usó `indexsinaccesibilidad` como referencia sin modificarlo y se creó un proyecto nuevo en `Promt-David` con `index.html`, `styles.css` y `app.js`. Luego se corrigió la estructura semántica, se revisó la jerarquía de encabezados, se mejoraron formularios e imágenes y se comprobó teclado, foco y legibilidad. El resultado es una versión más coherente en accesibilidad y con mejores resultados en las herramientas de validación.
