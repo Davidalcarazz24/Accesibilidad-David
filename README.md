@@ -1,4 +1,4 @@
-<img width="1903" height="975" alt="image" src="https://github.com/user-attachments/assets/1c60a64b-4faf-491f-8342-0626bff908b6" /># README / WCAG 2.2 (Promt-David)
+
 
 ## ES Español
 
