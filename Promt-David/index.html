@@ -1,16 +1,34 @@
-  <!-- =======================
-    1. BOILERPLATE HTML
-    2. METAS PRINCIPALES (charset, viewport)
-    3. SEO
-    4. OPEN GRAPH
-    5. COMPATIBILIDAD
-    6. TÍTULO
-    7. CSS EXTERNO
-  ======================= -->
-
-
 <!DOCTYPE html>
 <html lang="es"> <!-- idioma -->
+<!-- 
+  =======================================================================================
+  INDICE DE CORRECCIONES REALIZADAS (VERSION CORREGIDA)
+  =======================================================================================
+
+  1. Idioma del documento (lang)
+     - Se añade lang="es" al elemento <html>.
+     - Queda correcto porque los lectores de pantalla ya identifican el idioma del contenido.
+
+  2. Navegación por teclado (tabindex)
+     - Se eliminan los tabindex="-1" en enlaces, inputs y botones.
+     - Queda correcto porque los elementos interactivos vuelven a ser accesibles con Tab.
+
+  3. Texto alternativo en imágenes (alt)
+     - Se añaden atributos alt en imágenes informativas (y se deja preparado para decorativas si hiciera falta).
+     - Queda correcto porque el contenido visual ya tiene alternativa textual.
+
+  4. Formulario con etiquetas (label)
+     - Se sustituyen los <span> por <label for="..."> y se usan id en los campos.
+     - Queda correcto porque cada campo se identifica bien por tecnologías asistivas.
+
+  5. Modal: imagen con alt y controles accesibles
+     - Se añade alt a la imagen del modal y se eliminan bloqueos de teclado en botones.
+     - Queda correcto porque el modal mantiene controles navegables y la imagen tiene texto alternativo.
+
+  
+  =======================================================================================
+-->
+
 <head>
 
   <!-- 2. METAS PRINCIPALES -->
@@ -69,12 +87,14 @@
   <header class="topbar site-header"> <!-- cabecera -->
     <div class="wrap topbar__inner"> <!-- contenedor -->
       <h1 class="brand">AI<span>Lab</span></h1> <!-- marca -->
+      <!-- CORRECCION (FALLO 1): El idioma ya se definió en <html lang="es">. -->
 
       <!-- 2. NAV / MENÚ -->
       <nav id="menu"> <!-- navegación -->
         <div class="wrap">
           <input type="checkbox" id="responsive-menu" onclick="updatemenu()" /> <!-- control CSS -->
           <label for="responsive-menu"></label> <!-- botón -->
+          <!-- CORRECCION (FALLO 2): Se eliminó tabindex="-1" para permitir navegación con teclado. -->
 
           <ul> <!-- lista -->
             <li><a href="#inicio">Inicio</a></li> <!-- enlace -->
@@ -148,6 +168,7 @@
             src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=80"
             alt="Imagen de tecnología e inteligencia artificial"
           /> <!-- img -->
+          <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen informativa. -->
         </figure>
       </div>
     </section>
@@ -159,11 +180,13 @@
 
         <div class="controls"> <!-- controles -->
           <div class="search"> <!-- buscador -->
-            <span>Buscar</span> <!-- icono -->
+            <span>Buscar</span> <!-- texto -->
             <input id="searchCards" type="text" placeholder="Filtrar tarjetas (ML, LLM, RAG, Datos...)" /> <!-- input -->
+            <!-- CORRECCION (FALLO 2): Se elimina tabindex="-1" para que el input sea accesible con teclado. -->
           </div>
           <button id="btnScrollTop" class="btn secondary" type="button">Subir arriba</button> <!-- botón -->
           <button id="btnRandomTip" class="btn" type="button">Tip aleatorio</button> <!-- botón -->
+          <!-- CORRECCION (FALLO 2): Se eliminan bloqueos de teclado en botones. -->
         </div>
 
         <div id="tipBox" class="callout" style="display:none;"> <!-- tip -->
@@ -176,6 +199,7 @@
               src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"
               alt="Machine Learning y ciberseguridad"
             /> <!-- imagen -->
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body"> <!-- cuerpo -->
               <h3>Machine Learning</h3>
               <p>Aprendizaje a partir de datos: supervisado, no supervisado y por refuerzo.</p>
@@ -192,6 +216,7 @@
               src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80"
               alt="Deep Learning y trabajo con tecnología"
             />
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body">
               <h3>Deep Learning</h3>
               <p>Redes neuronales profundas para visión, audio, texto y series temporales.</p>
@@ -208,6 +233,7 @@
               src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=80"
               alt="IA generativa y código"
             />
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body">
               <h3>IA Generativa</h3>
               <p>Modelos que crean contenido: texto, imagen, audio, vídeo y código.</p>
@@ -267,6 +293,7 @@
               src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80"
               alt="LLMs y tecnología"
             /> <!-- imagen -->
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body"> <!-- cuerpo -->
               <h3>LLMs (Modelos de Lenguaje)</h3>
               <p>Transformers que generan y entienden texto por probabilidad token a token.</p>
@@ -283,6 +310,7 @@
               src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=80"
               alt="RAG y desarrollo"
             />
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body">
               <h3>RAG</h3>
               <p>Recupera información (vector DB) y la usa como contexto antes de responder.</p>
@@ -299,6 +327,7 @@
               src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=80"
               alt="Fine-tuning y código"
             />
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body">
               <h3>Fine-tuning</h3>
               <p>Ajusta un modelo con datos específicos para estilo, formato o tareas concretas.</p>
@@ -315,6 +344,7 @@
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
               alt="Evaluación y analítica"
             />
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body">
               <h3>Evaluación</h3>
               <p>Pruebas automáticas + revisión humana: precisión, seguridad y robustez.</p>
@@ -331,6 +361,7 @@
               src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80"
               alt="Agentes y automatización"
             />
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body">
               <h3>Agentes</h3>
               <p>Modelos que planifican tareas, llaman herramientas y encadenan pasos.</p>
@@ -347,6 +378,7 @@
               src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1400&q=80"
               alt="Multimodal y hardware"
             />
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body">
               <h3>Multimodal</h3>
               <p>Texto + imagen + audio: comprensión y generación combinada en un sistema.</p>
@@ -610,6 +642,7 @@
               src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80"
               alt="Cloud y tecnología"
             />
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body">
               <h3>Cloud + IA</h3>
               <p>Infraestructura, escalado, costes y observabilidad para modelos en producción.</p>
@@ -626,6 +659,7 @@
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
               alt="Datos y analítica"
             />
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body">
               <h3>Datos</h3>
               <p>ETL, calidad, gobierno del dato y datasets trazables para entrenar sin sorpresas.</p>
@@ -642,6 +676,7 @@
               src="https://images.unsplash.com/photo-1581092919535-7146c98d36d5?auto=format&fit=crop&w=1400&q=80"
               alt="Automatización industrial y robótica"
             />
+            <!-- CORRECCION (FALLO 3): Se añade alt para describir la imagen. -->
             <div class="card__body">
               <h3>Automatización</h3>
               <p>Agentes, IoT y pipelines: ejecutar, verificar y entregar resultados con control.</p>
@@ -728,12 +763,15 @@
               <div style="display:flex; gap:12px; flex-wrap:wrap;">
                 <div style="flex:1 1 260px;">
                   <label for="nombre" style="display:block; font-weight:800; color:rgba(232,232,234,.92); margin:0 0 6px;">Nombre</label>
+                  <!-- CORRECCION (FALLO 4): Se usa label con for y el input con id para asociación correcta. -->
                   <input id="nombre" name="nombre" type="text" placeholder="Nombre"
                     style="width:100%; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.10); border-radius:12px; color:rgba(232,232,234,.95); padding:10px 12px;" />
+                  <!-- CORRECCION (FALLO 2): Se elimina tabindex="-1" para teclado. -->
                 </div>
 
                 <div style="flex:1 1 260px;">
                   <label for="asunto" style="display:block; font-weight:800; color:rgba(232,232,234,.92); margin:0 0 6px;">Asunto</label>
+                  <!-- CORRECCION (FALLO 4): Se usa label con for y el input con id. -->
                   <input id="asunto" name="asunto" type="text" placeholder="Asunto"
                     style="width:100%; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.10); border-radius:12px; color:rgba(232,232,234,.95); padding:10px 12px;" />
                 </div>
@@ -741,12 +779,14 @@
 
               <div style="margin-top:12px;">
                 <label for="email" style="display:block; font-weight:800; color:rgba(232,232,234,.92); margin:0 0 6px;">Email</label>
+                <!-- CORRECCION (FALLO 4): Se usa label con for y el input con id. -->
                 <input id="email" name="email" type="email" placeholder="email@correo.com"
                   style="width:100%; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.10); border-radius:12px; color:rgba(232,232,234,.95); padding:10px 12px;" />
               </div>
 
               <div style="margin-top:12px;">
                 <label for="mensaje" style="display:block; font-weight:800; color:rgba(232,232,234,.92); margin:0 0 6px;">Mensaje</label>
+                <!-- CORRECCION (FALLO 4): Se usa label con for y el textarea con id. -->
                 <textarea id="mensaje" name="mensaje" placeholder="Mensaje..."
                   style="width:100%; min-height:130px; resize:vertical; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.10); border-radius:12px; color:rgba(232,232,234,.95); padding:10px 12px;"></textarea>
               </div>
@@ -754,6 +794,7 @@
               <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
                 <button class="btn" type="submit" name="enviar">Enviar</button>
                 <button class="btn secondary" type="reset">Limpiar</button>
+                <!-- CORRECCION (FALLO 2): Se eliminan bloqueos de teclado en botones. -->
               </div>
             </form>
           </div>
@@ -787,6 +828,7 @@
         <a href="#" title="IG">IG</a>
         <a href="#" title="GH">GH</a>
         <a href="#" title="IN">IN</a>
+        <!-- CORRECCION (FALLO 2): Se eliminan bloqueos de teclado en enlaces del footer. -->
       </div>
     </div>
   </footer>
@@ -797,10 +839,12 @@
       <div class="modal__top">
         <div class="modal__title" id="modalTitle">Detalle</div>
         <button class="modal__close" id="modalClose" type="button">×</button>
+        <!-- CORRECCION (FALLO 2): Se elimina tabindex="-1" del botón de cerrar. -->
       </div>
       <div class="modal__body">
         <div class="modal__grid">
           <img id="modalImg" class="modal__img" src="" alt="Imagen de detalle IA" />
+          <!-- CORRECCION (FALLO 3): Se añade alt a la imagen del modal. -->
           <div>
             <p id="modalDesc">...</p>
             <ul id="modalList">
@@ -809,6 +853,7 @@
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
               <button class="btn" id="modalGo" type="button">Ir a sección</button>
               <button class="btn secondary" id="modalCopy" type="button">Copiar resumen</button>
+              <!-- CORRECCION (FALLO 2): Se eliminan bloqueos de teclado en botones del modal. -->
             </div>
           </div>
         </div>
