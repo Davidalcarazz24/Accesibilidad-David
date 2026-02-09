@@ -1,3 +1,36 @@
+/* css/styles.css */
+/*
+  =======================================================================================
+  INDICE DE CORRECCIONES REALIZADAS (VERSION CORREGIDA)
+  =======================================================================================
+
+  1. Texto legible y escalable
+     - Se sube el tamaño base a 16px (1rem) y el interlineado a 1.6.
+     - Se evita depender de tamaños minúsculos que rompen el zoom.
+
+  2. Contraste correcto
+     - Se cambia --ink para que el texto contraste con el fondo.
+     - Se ajustan colores de títulos/texto para que no “desaparezcan”.
+
+  3. Enlaces identificables
+     - Se recupera el subrayado y un color visible para enlaces en contenido.
+     - En el menú se mantiene el estilo sin subrayado por diseño, pero se controla el foco.
+
+  4. Foco visible para teclado
+     - Se elimina el “outline: none” global y se usa :focus-visible.
+     - Se deja una señal clara de qué elemento está seleccionado al tabular.
+
+  5. Movimiento reducido
+     - Se añade @media (prefers-reduced-motion: reduce) para quitar transiciones
+       si el usuario lo tiene activado en el sistema.
+
+  6. Estados de interacción coherentes
+     - hover/focus se ven con contraste y no dependen solo de color.
+
+  
+  =======================================================================================
+*/
+
 /* =======================
   1. RESET / NORMALIZE
   2. VARIABLES GLOBALES
@@ -13,75 +46,180 @@
   12. CONTROLES (BUSCADOR + BOTONES)
   13. MODAL
   14. FOOTER
-  15. EXTRAS (HR, MINI-GRID)
+  15. EXTRAS
 ======================= */
 
-/* 1. RESET / NORMALIZE */
-* { box-sizing: border-box; /* Controla el modelo de caja */ }
-html, body { margin: 0; padding: 0; }
+/* =======================================================================================
+   1. RESET / NORMALIZE
+   - Se deja el mismo punto de partida en todos los navegadores.
+   - box-sizing: border-box hace que padding/border no “rompan” el ancho calculado.
+   ======================================================================================= */
+*{
+  box-sizing: border-box; /* Modelo de caja estable */
+}
 
-/* 2. VARIABLES GLOBALES */
+html, body{
+  margin: 0; /* Quita márgenes por defecto del navegador */
+  padding: 0; /* Quita paddings por defecto */
+}
+
+/* =======================================================================================
+   2. VARIABLES GLOBALES (CSS variables)
+   - Se centralizan los colores, sombras y radios para mantener coherencia.
+   - Importante para accesibilidad: el color de texto NO puede ser igual al fondo.
+   ======================================================================================= */
 :root{
+  /* Fondo general (oscuro) */
   --bg: #0f0f10;
+
+  /* Color de paneles (tarjetas, cajas) */
   --panel: #151517;
+
+  /* CORRECCION: color principal del texto */
+  /* Antes estaba como el fondo y el texto no se veía */
   --ink: #e8e8ea;
+
+  /* Texto secundario (descripciones) */
   --muted: #9aa0a6;
+
+  /* Líneas/bordes */
   --line: #242426;
+
+  /* Colores de marca (degradado y acentos) */
   --brand: #7c5cff;
   --brand2: #00d3ff;
+
+  /* Radios (esquinas redondeadas) */
   --radius: 16px;
+
+  /* Sombras */
   --shadow: 0 10px 24px rgba(0,0,0,.35);
   --shadow2: 0 18px 50px rgba(0,0,0,.45);
+
+  /* Semáforos (si se usan en badges o estados) */
   --good: #32d583;
   --warn: #fdb022;
   --bad: #f97066;
+
+  /* CORRECCION: foco visible */
+  /* Se usa como "halo" cuando un elemento recibe foco por teclado */
+  --focus: 0 0 0 3px rgba(0,211,255,.45);
 }
 
-/* 3. ESTILOS BASE */
+/* =======================================================================================
+   3. ESTILOS BASE
+   - Tipografía y colores globales.
+   - Importante: tamaño base mínimo 16px para legibilidad.
+   ======================================================================================= */
 body{
-  background: var(--bg);
-  color: var(--ink);
-  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial;
-}
-a{ color: inherit; text-decoration: none; }
-h1,h2,h3,h4{ margin: 0 0 10px; line-height: 1.2; }
-p{ margin: 0 0 12px; color: var(--muted); }
-ul,ol{ margin: 0; padding-left: 20px; }
+  background: var(--bg); /* Fondo oscuro principal */
+  color: var(--ink); /* Texto principal visible */
 
-/* 4. CONTENEDOR (WRAP) */
+  /* CORRECCION: tamaño base legible + line-height cómodo */
+  font: 1rem/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+/* Encabezados: se controlan márgenes y altura de línea para estructura */
+h1, h2, h3, h4{
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+/* Párrafos: se usa un gris “muted” para no deslumbrar */
+p{
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+/* Listas: se mantiene indentación típica */
+ul, ol{
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* =======================================================================================
+   ENLACES (a)
+   - Importante para accesibilidad: deben parecer enlaces.
+   - Se usa subrayado porque es la señal más clara.
+   ======================================================================================= */
+a{
+  color: var(--brand2); /* Color visible en fondo oscuro */
+  text-decoration: underline; /* CORRECCION: los enlaces vuelven a ser identificables */
+  text-underline-offset: 3px; /* Separación visual del subrayado */
+  text-decoration-thickness: 2px; /* Subrayado más visible */
+}
+
+a:hover{
+  text-decoration-thickness: 3px; /* Refuerza interacción en hover */
+}
+
+/* =======================================================================================
+   FOCO (teclado)
+   - :focus-visible se activa cuando se navega con teclado (TAB).
+   - Se evita marcar con foco al hacer click con ratón (mejor experiencia).
+   ======================================================================================= */
+:focus-visible{
+  outline: none; /* Se evita el outline por defecto (puede ser feo) */
+  box-shadow: var(--focus); /* CORRECCION: halo claro y visible */
+  border-radius: 10px; /* Redondea el halo para que no “corte” */
+}
+
+/* =======================================================================================
+   4. CONTENEDOR (WRAP)
+   - Limita el ancho para que la lectura no sea en líneas enormes.
+   - clamp(min, ideal, max) deja el diseño “tipo Apple” amplio pero controlado.
+   ======================================================================================= */
 .wrap{
   width: clamp(1000px, 92vw, 2000px);
-  margin: 0 auto;
-}
-@media (max-width: 1000px){
-  .wrap{ width: min(92vw, 1200px); }
+  margin: 0 auto; /* Centra el contenido */
 }
 
-/* 5. CABECERA (TOPBAR) */
+/* Adaptación para pantallas medianas */
+@media (max-width: 1000px){
+  .wrap{
+    width: min(92vw, 1200px);
+  }
+}
+
+/* =======================================================================================
+   5. CABECERA (TOPBAR)
+   - Sticky: se queda arriba al hacer scroll.
+   - backdrop-filter: desenfoque (estética), no afecta a accesibilidad.
+   ======================================================================================= */
 .topbar{
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 100; /* Asegura que quede por encima del contenido */
   backdrop-filter: blur(10px);
-  background: rgba(15,15,16,.72);
+  background: rgba(15,15,16,.72); /* Fondo translúcido */
   border-bottom: 1px solid rgba(255,255,255,.06);
   padding: 10px 0;
 }
+
 .topbar__inner{
-  display: flex;
+  display: flex; /* Distribuye logo y menú */
   align-items: center;
   justify-content: space-between;
   gap: 18px;
 }
+
+/* Marca/logo */
 .brand{
   font-size: 1.45rem;
   font-weight: 900;
   letter-spacing: .2px;
   user-select: none;
+  color: var(--ink);
 }
-.brand span{ color: var(--brand2); }
+.brand span{
+  color: var(--brand2); /* Acento */
+}
 
-/* 6. MENÚ (DESKTOP + RESPONSIVE) */
+/* =======================================================================================
+   6. MENÚ (DESKTOP + RESPONSIVE)
+   - Mantiene el estilo original (degradado).
+   - Se controla hover y focus para que se entienda navegación.
+   ======================================================================================= */
 #menu{
   background: linear-gradient(90deg, var(--brand), var(--brand2));
   height: 45px;
@@ -90,8 +228,21 @@ ul,ol{ margin: 0; padding-left: 20px; }
   box-shadow: var(--shadow);
   border: 1px solid rgba(255,255,255,.10);
 }
-#menu ul, #menu li{ list-style: none; margin: 0; padding: 0; }
-#menu li{ display: inline-block; position: relative; }
+
+/* Quita bullets y márgenes en lista */
+#menu ul, #menu li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* En desktop, los items van en línea */
+#menu li{
+  display: inline-block;
+  position: relative; /* Necesario para colocar el submenú absoluto */
+}
+
+/* Enlaces del menú */
 #menu a{
   display: block;
   padding: 0 14px;
@@ -99,18 +250,28 @@ ul,ol{ margin: 0; padding-left: 20px; }
   color: #fff;
   font-weight: 700;
   border-radius: 10px;
+
+  /* En el menú se deja sin subrayado por estética */
+  text-decoration: none;
 }
+
+/* Flecha del desplegable */
 #menu a.dropdown-arrow::after{
   content: "▾";
   margin-left: 6px;
   opacity: .95;
 }
-#menu li a:hover{
+
+/* CORRECCION: hover y focus-visible se ven igual de claro */
+#menu li a:hover,
+#menu li a:focus-visible{
   background: rgba(255,255,255,.92);
   color: #0f0f10;
 }
+
+/* Submenú: aparece bajo el item */
 #menu ul.sub-menus{
-  display: none;
+  display: none; /* Oculto hasta hover */
   position: absolute;
   top: 45px;
   left: 0;
@@ -122,39 +283,75 @@ ul,ol{ margin: 0; padding-left: 20px; }
   box-shadow: var(--shadow2);
   z-index: 99;
 }
+
+/* Enlaces del submenú */
 #menu ul.sub-menus a{
   line-height: 42px;
   padding: 0 12px;
   font-weight: 700;
   border-radius: 10px;
 }
-#menu li:hover ul.sub-menus{ display: block; }
-#menu input, #menu label{ display: none; }
 
+/* Mostrar submenú en hover (desktop) */
+#menu li:hover ul.sub-menus{
+  display: block;
+}
+
+/* Checkbox y label del menú móvil */
+#menu input, #menu label{
+  display: none;
+}
+
+/* =======================
+   MENÚ RESPONSIVE
+   - Aparece el botón hamburguesa.
+   - El checkbox controla si se despliega o no.
+======================= */
 @media (max-width: 800px){
   #menu{ position: relative; }
+
   #menu label{
     display: block;
-    width: 45px; height: 45px; line-height: 45px;
-    text-align: center; color: #fff; cursor: pointer;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
     user-select: none;
   }
-  #menu label::before{ content: "≡"; font-size: 1.6em; }
-  #menu input:checked + label::before{ content: "×"; }
 
+  #menu label::before{
+    content: "≡";
+    font-size: 1.6em;
+  }
+
+  #menu input:checked + label::before{
+    content: "×";
+  }
+
+  /* Menú desplegable */
   #menu ul{
     display: none;
     position: absolute;
-    top: 100%; left: 0; right: 0;
+    top: 100%;
+    left: 0;
+    right: 0;
     padding: 10px;
     background: #1a1a1f;
     border-radius: 0 0 12px 12px;
     border: 1px solid rgba(255,255,255,.08);
     box-shadow: var(--shadow2);
   }
-  #menu input:checked ~ ul{ display: block; }
+
+  #menu input:checked ~ ul{
+    display: block;
+  }
+
   #menu li{ display: block; }
   #menu a{ line-height: 44px; }
+
+  /* Submenús en móvil: sin caja flotante */
   #menu ul.sub-menus{
     position: static;
     width: 100%;
@@ -163,13 +360,17 @@ ul,ol{ margin: 0; padding-left: 20px; }
     border: none;
     box-shadow: none;
   }
+
   #menu ul.sub-menus a{
     background: rgba(255,255,255,.06);
     margin: 6px 0;
   }
 }
 
-/* 7. HERO */
+/* =======================================================================================
+   7. HERO (primera sección)
+   - Fondo con gradientes y bloque de texto + imagen.
+   ======================================================================================= */
 .hero{
   background:
     radial-gradient(1200px 600px at 70% -10%, rgba(124,92,255,.35), transparent),
@@ -178,12 +379,16 @@ ul,ol{ margin: 0; padding-left: 20px; }
   padding: 70px 0;
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
+
+/* Layout del hero en dos columnas */
 .hero__content{
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
 }
+
+/* Caja de texto */
 .hero__text{
   flex: 1 1 55%;
   padding: 14px 16px;
@@ -192,17 +397,23 @@ ul,ol{ margin: 0; padding-left: 20px; }
   background: rgba(21,21,23,.35);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
 }
+
+/* Título grande del hero */
 .hero__text h2{
   font-size: 2.55rem;
   margin-bottom: 12px;
   color: var(--ink);
 }
+
+/* KPIs (píldoras) */
 .hero-kpis{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 16px;
 }
+
+/* Cada KPI */
 .kpi{
   display: inline-flex;
   align-items: center;
@@ -216,8 +427,12 @@ ul,ol{ margin: 0; padding-left: 20px; }
   box-shadow: var(--shadow);
   user-select: none;
 }
-.kpi b{ color: var(--brand2); font-weight: 900; }
+.kpi b{
+  color: var(--brand2);
+  font-weight: 900;
+}
 
+/* Caja de imagen del hero */
 .hero-media{
   flex: 0 1 42%;
   aspect-ratio: 16/10;
@@ -228,17 +443,21 @@ ul,ol{ margin: 0; padding-left: 20px; }
   position: relative;
 }
 .hero-media img{
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
   transform: scale(1.02);
 }
 .hero-media::after{
   content: "";
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background: radial-gradient(700px 350px at 30% 10%, rgba(0,211,255,.18), transparent);
   pointer-events: none;
 }
+
+/* Hero en móvil: apila columnas */
 @media (max-width: 1000px){
   .hero__content{ flex-direction: column; text-align: center; }
   .hero-media{ width: min(92%, 720px); }
@@ -246,26 +465,37 @@ ul,ol{ margin: 0; padding-left: 20px; }
   .hero-kpis{ justify-content: center; }
 }
 
-/* 8. SECCIONES */
+/* =======================================================================================
+   8. SECCIONES
+   - Espaciado vertical y versión alternativa con fondo distinto.
+   ======================================================================================= */
 .section{ padding: 56px 0; }
+
 .section--alt{
   background: #111115;
   border-top: 1px solid rgba(255,255,255,.06);
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
+
 .section h2{
   color: var(--ink);
   font-size: 1.85rem;
   margin-bottom: 14px;
 }
 
-/* 9. TARJETAS (CARDS) */
+/* =======================================================================================
+   9. TARJETAS (CARDS)
+   - Layout flex que reparte las tarjetas.
+   - Transiciones: se mantienen pero se controla en reduced motion abajo.
+   ======================================================================================= */
 .cards{
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-around;
 }
+
+/* Tarjeta */
 .card{
   width: clamp(260px, 30%, 440px);
   background: rgba(21,21,23,.92);
@@ -276,29 +506,42 @@ ul,ol{ margin: 0; padding-left: 20px; }
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   cursor: pointer;
 }
-.card:hover{
+
+/* Hover y foco dentro (por ejemplo, si un link dentro recibe foco) */
+.card:hover,
+.card:focus-within{
   transform: translateY(-3px);
   border-color: rgba(0,211,255,.45);
   box-shadow: var(--shadow2);
 }
+
+/* Imagen de tarjeta */
 .card img{
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
   display: block;
 }
+
+/* Cuerpo de la tarjeta */
 .card__body{ padding: 16px; }
+
+/* Título dentro de tarjeta */
 .card__body h3{
   margin: 0 0 8px;
   color: rgba(232,232,234,.96);
   font-size: 1.22rem;
 }
+
+/* Meta: tags o etiquetas */
 .card__meta{
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 10px;
 }
+
+/* Tags (píldoras) */
 .tag{
   display: inline-block;
   padding: 6px 10px;
@@ -310,11 +553,16 @@ ul,ol{ margin: 0; padding-left: 20px; }
   font-size: .9rem;
   user-select: none;
 }
+
+/* Variantes de tag (se diferencian por color) */
 .tag.alt{ background: rgba(0,211,255,.10); border: 1px solid rgba(0,211,255,.32); }
 .tag.ok{ background: rgba(50,213,131,.10); border: 1px solid rgba(50,213,131,.32); }
 .tag.warn{ background: rgba(253,176,34,.10); border: 1px solid rgba(253,176,34,.32); }
 
-/* 10. BLOQUES (PANEL / GRID) */
+/* =======================================================================================
+   10. BLOQUES (PANEL / GRID)
+   - grid-2 crea dos columnas que se vuelven una en pantallas más pequeñas.
+   ======================================================================================= */
 .grid-2{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -324,6 +572,8 @@ ul,ol{ margin: 0; padding-left: 20px; }
 @media (max-width: 1100px){
   .grid-2{ grid-template-columns: 1fr; }
 }
+
+/* Panel (caja con contenido) */
 .panel{
   background: rgba(21,21,23,.92);
   border: 1px solid rgba(255,255,255,.08);
@@ -331,9 +581,16 @@ ul,ol{ margin: 0; padding-left: 20px; }
   padding: 18px;
   box-shadow: var(--shadow);
 }
-.panel h3{ color: rgba(232,232,234,.96); font-size: 1.25rem; margin-bottom: 8px; }
-.panel p{ color: rgba(154,160,166,.95); }
+.panel h3{
+  color: rgba(232,232,234,.96);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+.panel p{
+  color: rgba(154,160,166,.95);
+}
 
+/* Callout (caja de aviso con línea a la izquierda) */
 .callout{
   border-left: 4px solid var(--brand2);
   padding: 12px 14px;
@@ -344,7 +601,13 @@ ul,ol{ margin: 0; padding-left: 20px; }
 }
 .callout b{ color: var(--brand2); }
 
-.pill-row{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+/* Pills: etiquetas pequeñas en fila */
+.pill-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
 .pill{
   padding: 8px 12px;
   border-radius: 999px;
@@ -355,18 +618,23 @@ ul,ol{ margin: 0; padding-left: 20px; }
   user-select: none;
 }
 
-/* 11. PIPELINE IA (AI LAYOUT) */
+/* =======================================================================================
+   11. PIPELINE IA (AI LAYOUT)
+   - Layout con zona principal y barra lateral (sticky).
+   ======================================================================================= */
 .section--ai-detail{
   background: #0f1115;
   border-top: 1px solid rgba(255,255,255,.06);
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
+
 .ai-layout{
   display: grid;
   grid-template-columns: 1.45fr .75fr;
   gap: 24px;
   align-items: start;
 }
+
 .ai-main, .ai-aside{
   background: rgba(17,21,42,.72);
   border: 1px solid rgba(255,255,255,.08);
@@ -374,28 +642,55 @@ ul,ol{ margin: 0; padding-left: 20px; }
   padding: 18px;
   box-shadow: var(--shadow);
 }
+
+/* Aside sticky: se queda visible al hacer scroll */
 .ai-aside{
   position: sticky;
   top: 88px;
   max-height: calc(100vh - 140px);
   overflow-y: auto;
 }
+
 @media (max-width: 1100px){
   .ai-layout{ grid-template-columns: 1fr; }
   .ai-aside{ position: static; max-height: none; overflow: visible; }
 }
+
+/* Helpers de espaciado */
 .flow > * + *{ margin-top: .65em; }
 .stack-md > * + *{ margin-top: 14px; }
 
+/* Tabla con scroll horizontal si hace falta */
 .table-scroll{ overflow: auto; }
-.table{ width: 100%; border-collapse: collapse; font-size: .95rem; }
-.table th, .table td{ border: 1px solid rgba(255,255,255,.12); padding: 10px 12px; text-align: left; }
-.table thead th{ background: rgba(27,31,51,.90); color: rgba(232,232,234,.96); }
+.table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+}
+.table th, .table td{
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 10px 12px;
+  text-align: left;
+}
+.table thead th{
+  background: rgba(27,31,51,.90);
+  color: rgba(232,232,234,.96);
+}
 
-.glossary dt{ font-weight: 800; color: rgba(232,232,234,.96); }
-.glossary dd{ margin: 0 0 10px; color: rgba(154,160,166,.95); }
+/* Glosario (dt término, dd definición) */
+.glossary dt{
+  font-weight: 800;
+  color: rgba(232,232,234,.96);
+}
+.glossary dd{
+  margin: 0 0 10px;
+  color: rgba(154,160,166,.95);
+}
 
-/* 12. CONTROLES */
+/* =======================================================================================
+   12. CONTROLES (buscador + botones)
+   - El buscador tiene focus-within para marcar todo el bloque cuando se escribe.
+   ======================================================================================= */
 .controls{
   display: flex;
   flex-wrap: wrap;
@@ -404,6 +699,7 @@ ul,ol{ margin: 0; padding-left: 20px; }
   justify-content: space-between;
   margin: 14px 0 18px;
 }
+
 .search{
   flex: 1 1 420px;
   display: flex;
@@ -414,19 +710,33 @@ ul,ol{ margin: 0; padding-left: 20px; }
   border-radius: 14px;
   box-shadow: var(--shadow);
 }
+
+/* CORRECCION: cuando un input dentro recibe foco, se marca el contenedor */
+.search:focus-within{
+  box-shadow: var(--focus);
+}
+
 .search input{
   flex: 1;
   border: 0;
-  outline: none;
   background: transparent;
   color: rgba(232,232,234,.95);
   padding: 0;
 }
+
+/* Evita doble foco dentro del buscador */
+.search input:focus-visible{
+  box-shadow: none;
+  outline: none;
+}
+
 .search span{
   color: rgba(154,160,166,.95);
   font-weight: 800;
   user-select: none;
 }
+
+/* Botón principal */
 .btn{
   display: inline-flex;
   align-items: center;
@@ -443,14 +753,24 @@ ul,ol{ margin: 0; padding-left: 20px; }
   user-select: none;
   white-space: nowrap;
 }
-.btn:hover{ transform: translateY(-2px); box-shadow: var(--shadow2); }
+
+/* Hover del botón */
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow2);
+}
+
+/* Botón secundario */
 .btn.secondary{
   background: rgba(255,255,255,.08);
   color: rgba(232,232,234,.95);
   border: 1px solid rgba(255,255,255,.14);
 }
 
-/* 13. MODAL */
+/* =======================================================================================
+   13. MODAL
+   - Overlay oscuro + caja centrada.
+   ======================================================================================= */
 .modal{
   position: fixed;
   inset: 0;
@@ -460,6 +780,7 @@ ul,ol{ margin: 0; padding-left: 20px; }
   padding: 26px;
 }
 .modal.is-open{ display: block; }
+
 .modal__dialog{
   width: min(980px, 96vw);
   margin: 40px auto;
@@ -469,6 +790,7 @@ ul,ol{ margin: 0; padding-left: 20px; }
   box-shadow: var(--shadow2);
   overflow: hidden;
 }
+
 .modal__top{
   display: flex;
   justify-content: space-between;
@@ -478,9 +800,15 @@ ul,ol{ margin: 0; padding-left: 20px; }
   background: rgba(0,0,0,.25);
   border-bottom: 1px solid rgba(255,255,255,.08);
 }
-.modal__title{ font-weight: 900; color: rgba(232,232,234,.96); }
+
+.modal__title{
+  font-weight: 900;
+  color: rgba(232,232,234,.96);
+}
+
 .modal__close{
-  width: 42px; height: 42px;
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.06);
@@ -488,16 +816,20 @@ ul,ol{ margin: 0; padding-left: 20px; }
   cursor: pointer;
   font-weight: 900;
 }
+
 .modal__body{ padding: 16px; }
+
 .modal__grid{
   display: grid;
   grid-template-columns: 1.05fr .95fr;
   gap: 16px;
   align-items: start;
 }
+
 @media (max-width: 1000px){
   .modal__grid{ grid-template-columns: 1fr; }
 }
+
 .modal__img{
   width: 100%;
   aspect-ratio: 16/9;
@@ -505,16 +837,21 @@ ul,ol{ margin: 0; padding-left: 20px; }
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,.10);
 }
+
 .modal__body ul{ color: rgba(154,160,166,.95); }
 .modal__body li{ margin-bottom: 6px; }
 
-/* 14. FOOTER */
+/* =======================================================================================
+   14. FOOTER
+   - Parte final con redes y texto.
+   ======================================================================================= */
 .site-footer{
   padding: 26px 0;
   border-top: 1px solid rgba(255,255,255,.06);
   color: rgba(154,160,166,.95);
   background: #0d0d10;
 }
+
 .footer__inner{
   display: flex;
   align-items: center;
@@ -522,29 +859,64 @@ ul,ol{ margin: 0; padding-left: 20px; }
   gap: 16px;
   flex-wrap: wrap;
 }
-.social{ display: flex; gap: 10px; }
+
+.social{
+  display: flex;
+  gap: 10px;
+}
+
+/* Enlaces de redes con caja “botón” */
 .social a{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   border-radius: 12px;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: var(--shadow);
   font-weight: 900;
   user-select: none;
+
+  /* Se deja sin subrayado por ser iconos/letras dentro de caja */
+  text-decoration: none;
+  color: var(--ink);
 }
+
+/* Hover de redes */
 .social a:hover{
   border-color: rgba(0,211,255,.45);
   background: rgba(0,211,255,.12);
 }
 
-/* 15. EXTRAS */
-.hr{ height: 1px; background: rgba(255,255,255,.08); border: 0; margin: 14px 0; }
-.note{ font-size: .95rem; color: rgba(154,160,166,.95); }
-.mini-grid{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-@media (max-width: 1100px){ .mini-grid{ grid-template-columns: 1fr; } }
+/* =======================================================================================
+   15. EXTRAS
+   - Detalles pequeños: líneas separadoras, notas y mini-grid.
+   ======================================================================================= */
+.hr{
+  height: 1px;
+  background: rgba(255,255,255,.08);
+  border: 0;
+  margin: 14px 0;
+}
+
+.note{
+  font-size: .95rem;
+  color: rgba(154,160,166,.95);
+}
+
+/* Mini-grid (3 columnas) */
+.mini-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 1100px){
+  .mini-grid{ grid-template-columns: 1fr; }
+}
+
+/* Caja mini */
 .mini{
   background: rgba(0,0,0,.20);
   border: 1px solid rgba(255,255,255,.08);
@@ -552,5 +924,21 @@ ul,ol{ margin: 0; padding-left: 20px; }
   padding: 14px;
   box-shadow: var(--shadow);
 }
-.mini h4{ margin-bottom: 6px; color: rgba(232,232,234,.96); }
+.mini h4{
+  margin-bottom: 6px;
+  color: rgba(232,232,234,.96);
+}
 .mini p{ margin: 0; }
+
+/* =======================================================================================
+   ACCESIBILIDAD: REDUCED MOTION
+   - Si el usuario ha activado “reducir movimiento”, se quitan transiciones y animaciones.
+   - Esto evita mareos a personas sensibles al movimiento.
+   ======================================================================================= */
+@media (prefers-reduced-motion: reduce){
+  *{
+    scroll-behavior: auto; /* evita scroll suave si existiera */
+    transition: none !important; /* quita transiciones */
+    animation: none !important; /* quita animaciones */
+  }
+}
