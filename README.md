@@ -5,20 +5,20 @@
 ### Qué incluye este README
 - El **prompt completo** usado para generar la versión accesible.
 - Los **asistentes** usados: ChatGPT y Codex.
-- Las **herramientas de validación** usadas (mínimo 3) y el proceso seguido.
+- Las **herramientas de validación** usadas y el proceso seguido.
 - El enlace a las **capturas** de las validaciones.
 
 ### Proceso de desarrollo del prompt
 - Partí del archivo `indexsinaccesibilidad` como base y dejé claro que **no se puede modificar**.
 - Pedí crear una carpeta nueva llamada `Promt-David` con `index.html`, `css/styles.css` y `js/app.js`, reutilizando la información del original pero rehaciendo la versión accesible.
-- Añadí requisitos concretos: semántica HTML5, jerarquía de encabezados, labels en formularios, ARIA solo cuando aporta, teclado/foco visible, contraste, y `alt` descriptivos.
+- Añadí requisitos concretos: semántica HTML5, jerarquía de encabezados, labels en formularios, ARIA solo cuando aporta, teclado/foco visible, contraste y `alt` descriptivos.
 - Ajusté el prompt para que el código incluya comentarios en tercera persona, estilo estudiante, sin emojis y sin mencionar IA.
 
 ### Asistentes usados
 - **ChatGPT**: para diseñar y ajustar el prompt.
 - **Codex**: para aplicar el prompt al proyecto y generar los archivos finales.
 
-### Herramientas de validación usadas y pasos
+### Pasos seguidos para validar la accesibilidad
 1. **WAVE (WebAIM)**: revisión de estructura, formularios, `alt` y encabezados.
 2. **axe DevTools (Deque)**: detección de fallos de ARIA, teclado y elementos interactivos.
 3. **Lighthouse (Chrome DevTools)**: comprobación de accesibilidad y repetición de ajustes.
@@ -33,6 +33,9 @@
 
 ### Enlace a capturas de validación
 - WAVE + axe DevTools + Lighthouse (capturas): **[PEGAR AQUÍ EL ENLACE]**
+
+### Explicación del proceso de trabajo y resultados obtenidos
+Se usó `indexsinaccesibilidad` como referencia sin modificarlo y se creó un proyecto nuevo en `Promt-David` con `index.html`, `styles.css` y `app.js`. Luego se corrigió la estructura semántica, se revisó la jerarquía de encabezados, se mejoraron formularios e imágenes y se comprobó teclado, foco y legibilidad. El resultado es una versión más coherente en accesibilidad y con mejores resultados en las herramientas de validación.
 
 ---
 
@@ -113,7 +116,7 @@
 ### What this README includes
 - The **full prompt** used to generate the accessible version.
 - The **assistants** used: ChatGPT and Codex.
-- The **validation tools** used (at least 3) and the steps followed.
+- The **validation tools** used and the steps followed.
 - The link to **validation screenshots**.
 
 ### Prompt development process
@@ -126,13 +129,13 @@
 - **ChatGPT**: to design and refine the prompt.
 - **Codex**: to apply the prompt and generate the final files.
 
-### Validation tools used and steps
+### Accessibility validation steps
 1. **WAVE (WebAIM)**: structure, forms, `alt`, headings.
 2. **axe DevTools (Deque)**: ARIA, keyboard, interactive issues.
 3. **Lighthouse (Chrome DevTools)**: accessibility audit and iterations.
 4. Manual check: Tab/Shift+Tab navigation and visible focus.
 
-### Issues found and applied solutions
+### Issues found and fixes applied
 - Missing `label` and `for/id`: added them and used `aria-describedby` for help/errors.
 - Incorrect heading order: kept one `h1` and fixed the hierarchy.
 - Images without meaningful `alt`: added descriptive `alt` and `alt=""` for decorative images.
